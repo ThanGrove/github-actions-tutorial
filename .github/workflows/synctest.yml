@@ -1,0 +1,26 @@
+name: synctest
+
+on:
+  push:
+    branches:
+      - synctest
+jobs:
+  sync_to_site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Create build and copy to server
+        run: |
+          pwd
+          ls
+#        env:
+#          remote_host: ${{ secrets.A2_HOST_NAME }}
+#          remote_port: ${{ secrets.A2_PORT }}
+#          remote_user: ${{ secrets.A2_USER }}
+#          remote_key: ${{ secrets.A2_PRIVATE_KEY }}
+#        run: |
+#          mkdir ~/.ssh
+#          echo "$remote_key" > ~/.ssh/id_rsa_wpa2
+#          chmod 400 ~/.ssh/id_rsa_wpa2
+#          rsync -avzr --delete -e "ssh -p ${remote_port} -i ~/.ssh/id_rsa_wpa2 -o StrictHostKeyChecking=no" ${{matrix.localdir}} ${remote_user}@${remote_host}:${{matrix.remotedir}}
+
